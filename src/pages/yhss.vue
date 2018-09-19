@@ -47,10 +47,7 @@
                           <i class="logout iconfont icon-sousuo"></i>
                           搜索任务
                      </span> -->
-                     <el-button class="soso" type="primary" @click="search"> 
-                         <i class="logout iconfont icon-sousuo"></i> 
-                         搜索任务
-                    </el-button>
+                     <el-button class="soso" type="primary"> <i class="logout iconfont icon-sousuo"></i> 搜索任务</el-button>
                 </div>
             </div>
      
@@ -183,33 +180,6 @@ export default {
         }],
         value: ''
       };
-    },
-    methods:{
-        search(){
-            console.log(111111111111)
-
-        
-
-        // 使用封装的ajax调接口即可        
-        this.$http({
-          url:"https://api.api68.com/klsf/getLotteryInfo.do",
-          type:"post",
-          data:{
-              issue:"",
-              lotCode:"10009"
-          }
-      })
-      .then(function(res){
-          console.log(res);
-          var result = res.result.data;
-          console.log(result)
-        //   console.log(this.msg);
-      }.bind(this))
-      .catch(function(err){
-        //   console.log(err)
-      }.bind(this))
-        }
-
     }
 }
 
@@ -241,10 +211,12 @@ export default {
 }
 .right-bottom{
     width:100%;
-    height:auto;
-background:rgba(255,255,255,1);
-border-radius:4px 4px 0px 0px;
-box-shadow:4px 1px 5px rgba(41,43,44,0.08);
+    height:610px;
+    background:rgba(255,255,255,1);
+    border-radius:4px 4px 0px 0px;
+    box-shadow:4px 1px 5px rgba(41,43,44,0.08);
+    box-sizing: border-box;
+    padding:0px 38px;
 }
 .screen{
      padding:36px 0px 36px 32px;
@@ -272,19 +244,19 @@ padding-left:15px;
 }
 .search-task{
     width:124px;
-height:45px;
-background:rgba(89,175,255,1);
-border-radius:4px;
-color:#fff;
-display:inline-block;
-text-align:center;
-line-height:45px;
+    height:45px;
+    background:rgba(89,175,255,1);
+    border-radius:4px;
+    color:#fff;
+    display:inline-block;
+    text-align:center;
+    line-height:45px;
 }
 .main-table{
   width: 100%;
   height: 100%;
 }
-.main-trs{
+.main-table .main-trs{
     /* width: 100px; */
     height: 50px;
     text-align: center;
@@ -292,17 +264,20 @@ line-height:45px;
     line-height: 50px;
     
 }
-.main-trs th{
+.main-table .main-trs th{
     height:17px;
     font-size:16px;
     color:rgba(58,75,100,1);
 }
-.main-trs td{
-    /* width: 100px; */
+.main-table .main-trs td{
+    width: 140px;
      box-sizing: border-box;
       padding:0px 35px;
      box-sizing: border-box;
      
+}
+.main-table tr:nth-last-child(1){
+    border-bottom: none;
 }
 .hjxx{
     width:98px;

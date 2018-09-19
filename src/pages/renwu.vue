@@ -8,15 +8,21 @@
                 <div class=" screen">
                     <span class="select">机器人筛选</span>
 
-                    <el-select v-model="value" placeholder="请选择">
-                        <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+                    <el-select  v-model="value" placeholder="请选择">
+                        <el-option 
+                        v-for="item in options"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value">
                         </el-option>
                     </el-select>
+                    
                 </div>
 
-                <div class="right-bottom">
+                <div class="right-bottoms">
                     <table class="main-table">
                         <tr class="main-trs">
+
                             <th>
                                 序号
                             </th>
@@ -41,7 +47,7 @@
                             <td>xxx话术流程</td>
                             <td>启用</td>
                             <td>
-                                <button class="hjxx" @click="open5">播放记录</button>
+                                <button class="hjxx">播放记录</button>
                                 <button class="dcly">导出录音</button>
                             </td>
                         </tr>
@@ -127,38 +133,32 @@ export default {
       options: [
         {
           value: "选项1",
-          label: "机器人1"
+          label: "黄金糕"
         },
         {
           value: "选项2",
-          label: "机器人2"
+          label: "双皮奶"
         },
         {
           value: "选项3",
-          label: "机器人3"
+          label: "蚵仔煎"
         },
         {
           value: "选项4",
-          label: "机器人4"
+          label: "龙须面"
         },
         {
           value: "选项5",
-          label: "机器人5"
+          label: "北京烤鸭"
         }
       ],
       value: ""
     };
-  },
-  methods:{
-      open5() {
-        this.$alert('<strong>这是 <i>HTML</i> 片段</strong>', '写入想要的HTML代码即可', {
-          dangerouslyUseHTMLString: true
-        });
-      }
   }
 };
 </script>
 <style scoped>
+
 .main-right-top h2 {
   font-size: 30px;
   color: rgba(58, 75, 100, 1);
@@ -167,6 +167,7 @@ export default {
 }
 .main-right-box {
   width: 100%;
+  height: 705px;
   margin-top: 28px;
   background: rgba(255, 255, 255, 1);
   border-radius: 4px 4px 0px 0px;
@@ -185,9 +186,10 @@ export default {
 }
 .screen {
   height: 100px;
-  line-height: 100px;
   border-bottom: 1px solid rgba(213, 216, 219, 1);
   padding-left: 10px;
+ padding-top:33px;
+ box-sizing: border-box;
 }
 
 .screen .select {
@@ -215,6 +217,9 @@ export default {
   width: 100%;
   height: 100%;
 }
+.right-bottoms table tr:nth-last-child(1){
+    border-bottom: none;
+}
 .main-trs {
   /* width: 100px; */
   height: 100px;
@@ -231,7 +236,7 @@ export default {
   /* width: 100px; */
   height: 50px;
   box-sizing: border-box;
-  /* padding: 0px 35px; */
+  padding: 0px 35px;
   box-sizing: border-box;
 }
 .hjxx {

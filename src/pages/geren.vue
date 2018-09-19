@@ -69,7 +69,7 @@
                     <td>888@163.com</td>
                     <td>
                         <button class="td-qy">启用</button>
-                       <button class="td-xg" @click="dialogFormVisible = true">修改</button>
+                        <button class="td-xg">修改</button>
                         <button class="td-sc">删除</button>
                     </td>
                 </tr>
@@ -114,23 +114,16 @@
         <!-- 修改密码 -->
         <div v-show="show==2"  class="change-password">
              <h3 class="xg-password">修改密码</h3>
-            <el-form  :model="ruleForm2" status-icon :rules="rules2" ref="ruleForm2" label-width="100px" class="demo-ruleForm">
-                <el-form-item label="原密码:" prop="oldPass">
-    <el-input type="password" v-model="ruleForm2.oldPass" autocomplete="off"></el-input>
-  </el-form-item>
-  <el-form-item label="新密码:" prop="pass">
-    <el-input type="password" v-model="ruleForm2.pass" autocomplete="off"></el-input>
-  </el-form-item>
-  <el-form-item label="确认密码:" prop="checkPass">
-    <el-input type="password" v-model="ruleForm2.checkPass" autocomplete="off"></el-input>
-  </el-form-item>
-  <el-form-item>
-    
-    <el-button @click="show=0">取消</el-button>
-    <el-button type="primary" @click="submitForm('ruleForm2')">确认</el-button>
-  </el-form-item>
-</el-form>
+             <form action="" method="post">
+             <p class="original-password">原密码 : <input maxlength="12" name="password" type="password" placeholder="请输入原密码" /></p>
+             <p class="new-password">新密码 : <input maxlength="12" name="password" type="password" placeholder="请输入6-12位字母或数字组合的新密码" /></p>
+             <p class="confirm-passwords">确认密码 :  <input maxlength="12" type="password" placeholder="请重复密码" /></p>
+             <div class="quit-btn">
+                 <el-button  @click="show=0" style="width:157px; height:55px" >取消</el-button>
+                <el-button style="width:157px;  height:55px" type="primary">确认</el-button>
                 <span  @click="show=0" class="quit-xxx">X</span>
+            </div>
+            </form>
         </div>
         <!-- 添加子账号 -->
         <div  class="add-subaccount">
@@ -158,107 +151,16 @@
              <span class="quit-xxx">X</span>
              </form>
         </div>
-        <el-dialog title="收货地址" :visible.sync="dialogFormVisible">
-  <el-form :model="form">
-    <el-form-item label="活动名称" :label-width="formLabelWidth">
-      <el-input v-model="form.name" autocomplete="off"></el-input>
-    </el-form-item>
-    <el-form-item label="活动区域" :label-width="formLabelWidth">
-      <el-select v-model="form.region" placeholder="请选择活动区域">
-        <el-option label="区域一" value="shanghai"></el-option>
-        <el-option label="区域二" value="beijing"></el-option>
-      </el-select>
-    </el-form-item>
-  </el-form>
-  <div slot="footer" class="dialog-footer">
-    <el-button @click="dialogFormVisible = false">取 消</el-button>
-    <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
-  </div>
-</el-dialog>
     </div>
 </template>
 <script>
 export default {
-    data() {
-      var validatePass = (rule, value, callback) => {
-        if (value === '') {
-          callback(new Error('请输入密码'));
-        } else {
-          if (this.ruleForm2.checkPass !== '') {
-            this.$refs.ruleForm2.validateField('checkPass');
-          }
-          callback();
+      data() {
+    return {
+        show:0,
         }
-      };
-      var validatePass2 = (rule, value, callback) => {
-        if (value === '') {
-          callback(new Error('请再次输入密码'));
-        } else if (value !== this.ruleForm2.pass) {
-          callback(new Error('两次输入密码不一致!'));
-        } else {
-          callback();
-        }
-      };
-      var oldPasss = (rule,value,callback) => {
-          if (value === '') {
-          callback(new Error('请再次输入密码'));
-        }else if (value == this.ruleForm2.pass) {
-          callback(new Error('更改密码不能相同!'));
-        }
-        else {
-          callback();
-        }
-      };
-      return {
-          show:0,
-        ruleForm2: {
-          pass: '',
-          checkPass: '',
-          oldPass:''
-        },
-        rules2: {
-            //验证规则
-          pass: [
-            { validator: validatePass, trigger: 'blur' }
-          ],
-          checkPass: [
-            { validator: validatePass2, trigger: 'blur' }
-          ],
-          oldPass: [
-            { validator: oldPasss, trigger: 'blur' }
-          ],
-        },
-        dialogFormVisible: false,
-        form: {
-          name: '',
-          region: '',
-          date1: '',
-          date2: '',
-          delivery: false,
-          type: [],
-          resource: '',
-          desc: ''
-        },
-        formLabelWidth: '120px'
-      };
-    },
-    methods: {
-      submitForm(formName) {
-        this.$refs[formName].validate((valid) => {
-          if (valid) {
-            alert('submit!');
-          } else {
-            console.log('error submit!!');
-            return false;
-          }
-        });
-      },
-      resetForm(formName) {
-        this.$refs[formName].resetFields();
-      },
-    
     }
-  }
+};
 </script>
 <style scoped>
 .main-right-top {
@@ -454,6 +356,8 @@ table th,batle td{
         z-index: 500;
         display: flex; 
         flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
         box-sizing: border-box; 
         padding:47px 53px;
         
@@ -491,7 +395,6 @@ table th,batle td{
         color:rgba(58,75,100,1);
         margin-top:10px;
         margin-bottom:30px;
-        text-align: center;
     }
     .interface .xg-password{
        font-size:24px;

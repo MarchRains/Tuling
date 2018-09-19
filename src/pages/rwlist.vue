@@ -31,7 +31,7 @@
                     :label="item.label"
                     :value="item.value">
                     </el-option>
-                </el-select> 
+                    </el-select> 
                 </div>&nbsp &nbsp
 
               <span class="task-name">
@@ -57,12 +57,12 @@
             </div>
         </div>
 
-        <div v-show="s==1"  class="rewulb-bottom">
-             <table class="rewulb-bottom-table">
+    <div v-show="s==1"  class="rewulb-bottom">
+    <table class="rewulb-bottom-table">
      <tr class="rewulb-bottom-tr">
     
     <th>
-        <input class="check" type="checkbox" name="vehicle" value="Car"  />
+           <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange"></el-checkbox>
         序号
     </th>
     <th>任务名称</th>
@@ -75,8 +75,10 @@
     <th>操作</th>
   </tr>
   <tr class="rewulb-bottom-tr">      
-    <td>
-        <input class="check" type="checkbox" name="vehicle" value="Car"  />
+    <td class="rewulb-bottom-td">
+         <el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
+                <el-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox>
+         </el-checkbox-group>
         01
     </td>
     <td>$教育回访</td>
@@ -96,8 +98,10 @@
     </td>
   </tr>
   <tr class="rewulb-bottom-tr">      
-    <td>
-        <input class="check" type="checkbox" name="vehicle" value="Car"  />
+    <td class="rewulb-bottom-td">
+         <el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
+            <el-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox>
+         </el-checkbox-group>
         01
     </td>
     <td>$教育回访</td>
@@ -117,8 +121,10 @@
     </td>
   </tr>
   <tr class="rewulb-bottom-tr">      
-    <td>
-        <input class="check" type="checkbox" name="vehicle" value="Car"  />
+    <td class="rewulb-bottom-td">
+        <el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
+            <el-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox>
+         </el-checkbox-group>
         01
     </td>
     <td>$教育回访</td>
@@ -138,8 +144,10 @@
     </td>
   </tr>
   <tr class="rewulb-bottom-tr">      
-    <td>
-        <input class="check" type="checkbox" name="vehicle" value="Car"  />
+    <td class="rewulb-bottom-td">
+        <el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
+            <el-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox>
+         </el-checkbox-group>
         01
     </td>
     <td>$教育回访</td>
@@ -159,8 +167,10 @@
     </td>
   </tr>
   <tr class="rewulb-bottom-tr">      
-    <td>
-        <input class="check" type="checkbox" name="vehicle" value="Car"  />
+    <td class="rewulb-bottom-td">
+        <el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
+            <el-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox>
+         </el-checkbox-group>
         01
     </td>
     <td>$教育回访</td>
@@ -180,8 +190,10 @@
     </td>
   </tr>
   <tr class="rewulb-bottom-tr">      
-    <td>
-        <input class="check" type="checkbox" name="vehicle" value="Car"  />
+    <td class="rewulb-bottom-td">
+        <el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
+            <el-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox>
+         </el-checkbox-group>
         01
     </td>
     <td>$教育回访</td>
@@ -275,7 +287,7 @@
                 <tr class="main-tr">
                     
                     <th>
-                         <input  class="check" type="checkbox" name="vehicle" value="Car"  />序号
+                          <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange"></el-checkbox>序号
                     </th>
                     <th>客户姓名</th>
                     <th>是否接通</th>
@@ -285,8 +297,10 @@
 
                 </tr>
                 <tr class="main-tr">
-                    <td>
-                        <input class="check" type="checkbox" name="vehicle" value="Car"  />
+                    <td class="rewulb-bottom-td">
+                        <el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
+                                 <el-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox>
+                         </el-checkbox-group>
                         01
                     </td>
                     <td>张三</td>
@@ -300,8 +314,10 @@
                     </td>
                 </tr>
                  <tr class="main-tr">
-                    <td>
-                        <input class="check" type="checkbox" name="vehicle" value="Car"  />
+                    <td class="rewulb-bottom-td">
+                        <el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
+                                 <el-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox>
+                         </el-checkbox-group>
                         01
                     </td>
                     <td>张三</td>
@@ -315,8 +331,10 @@
                     </td>
                 </tr>
                  <tr class="main-tr">
-                    <td>
-                        <input class="check" type="checkbox" name="vehicle" value="Car"  />
+                    <td class="rewulb-bottom-td">
+                        <el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
+                                 <el-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox>
+                         </el-checkbox-group>
                         01
                     </td>
                     <td>张三</td>
@@ -331,8 +349,10 @@
                 </tr>
                  <tr class="main-tr">
                    
-                    <td>
-                        <input class="check" type="checkbox" name="vehicle" value="Car"  />
+                    <td class="rewulb-bottom-td">
+                       <el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
+                                 <el-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox>
+                        </el-checkbox-group>
                         01
                     </td>
                     <td>张三</td>
@@ -347,8 +367,10 @@
                 </tr >
                  <tr class="main-tr">
                    
-                    <td>
-                        <input class="check" type="checkbox" name="vehicle" value="Car"  />
+                    <td class="rewulb-bottom-td">
+                        <el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
+                                 <el-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox>
+                        </el-checkbox-group>
                         01
                     </td>
                     <td>张三</td>
@@ -400,7 +422,8 @@
                 <tr class="main-tr">
                     
                     <th>
-                         <input  class="check" type="checkbox" name="vehicle" value="Car"  />序号
+                    <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange"></el-checkbox>
+                         序号
                     </th>
                     <th>客户姓名</th>
                     <th>是否接通</th>
@@ -410,8 +433,26 @@
 
                 </tr>
                 <tr class="main-tr">
+                    <td class="rewulb-bottom-td">
+                         <el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
+                            <el-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox>
+                        </el-checkbox-group>01
+                    </td>
+                    <td>张三</td>
+                    <td>未接通</td>
+                    <td>18888888888</td>
+                    <td>呼叫失败</td>
                     <td>
-                        <input class="check" type="checkbox" name="vehicle" value="Car"  />
+                        <button class="hjxx">呼叫详细</button>
+                        <button class="dcly">导出录音</button>
+                        <button class="csh">初始化</button>
+                    </td>
+                </tr>
+                 <tr class="main-tr">
+                    <td class="rewulb-bottom-td">
+                        <el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
+                            <el-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox>
+                        </el-checkbox-group>
                         01
                     </td>
                     <td>张三</td>
@@ -425,23 +466,10 @@
                     </td>
                 </tr>
                  <tr class="main-tr">
-                    <td>
-                        <input class="check" type="checkbox" name="vehicle" value="Car"  />
-                        01
-                    </td>
-                    <td>张三</td>
-                    <td>未接通</td>
-                    <td>18888888888</td>
-                    <td>呼叫失败</td>
-                    <td>
-                        <button class="hjxx">呼叫详细</button>
-                        <button class="dcly">导出录音</button>
-                        <button class="csh">初始化</button>
-                    </td>
-                </tr>
-                 <tr class="main-tr">
-                    <td>
-                        <input class="check" type="checkbox" name="vehicle" value="Car"  />
+                    <td class="rewulb-bottom-td">
+                        <el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
+                            <el-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox>
+                        </el-checkbox-group>
                         01
                     </td>
                     <td>张三</td>
@@ -456,8 +484,10 @@
                 </tr>
                  <tr class="main-tr">
                    
-                    <td>
-                        <input class="check" type="checkbox" name="vehicle" value="Car"  />
+                    <td class="rewulb-bottom-td">
+                        <el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
+                            <el-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox>
+                        </el-checkbox-group>
                         01
                     </td>
                     <td>张三</td>
@@ -472,8 +502,10 @@
                 </tr >
                  <tr class="main-tr">
                    
-                    <td>
-                        <input class="check" type="checkbox" name="vehicle" value="Car"  />
+                    <td class="rewulb-bottom-td">
+                        <el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
+                            <el-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox>
+                        </el-checkbox-group>
                         01
                     </td>
                     <td>张三</td>
@@ -493,10 +525,16 @@
     </div>
 </template>
 <script>
+const cityOptions = [''];
 export default {
   data() {
     return {
-      s: 1,
+        checkAll: false,
+         checkedCities: [],
+        cities: cityOptions,
+        // isIndeterminate: false,
+        
+         s: 1,
       //是否接通
       options: [
         {
@@ -530,26 +568,27 @@ export default {
       ],
       value: "",
       //多选框
-    //   checked: false
+   
     };
   },
-  methods: {
-    rewua() {
-        this.s = 1;
-    },
-    rewuaa() {
-        this.s = 2;
-    },
-    rewuaaa() {
-        this.s = 3;
+   methods: {
+      handleCheckAllChange(val) {
+        this.checkedCities = val ? cityOptions : [];
+        // this.isIndeterminate = false;
+      },
+      handleCheckedCitiesChange(value) {
+        let checkedCount = value.length;
+        this.checkAll = checkedCount === this.cities.length;
+        // this.isIndeterminate = checkedCount > 0 && checkedCount < this.cities.length;
+      }
     }
-  }
 };
 </script>
 <style>
 /* 任务列表开始 */
 .rewulb {
     width:100%;
+    height:304px;
     background:rgba(255,255,255,1);
     border-radius:4px 4px 0px 0px;
     box-shadow:4px 1px 5px rgba(41,43,44,0.08);
@@ -569,6 +608,7 @@ export default {
     border:1px solid rgba(213,216,219,1);
     border-radius:4px;
     margin-right:26px;
+    padding-left: 20px;
 }
 .text-box{
   display: flex;
@@ -599,6 +639,7 @@ export default {
   width:100%;
   height:100px;
   box-sizing: border-box;
+  padding: 0px 22px;
 }
 
 .batch-right{
@@ -612,6 +653,7 @@ export default {
 
 .rewulb-bottom{
     width:100%;
+    height:710px;
     background:rgba(255,255,255,1);
     border-radius:4px 4px 0px 0px;
     box-shadow:4px 1px 5px rgba(41,43,44,0.08);
@@ -625,17 +667,20 @@ export default {
      box-sizing: border-box;
 }
 .rewulb-bottom-table tr{
+   height:100px;
    box-sizing: border-box;
    border-bottom:1px solid rgba(245,245,245,1);
 }
 
 .rewulb-bottom-table .rewulb-bottom-tr td{
-    width:80px;
+    /* width:80px; */
     /* height:100%; */
     text-align:center;
     box-sizing: border-box;
 }
-
+.td-btn{
+    width: 280px;
+}
 
 .td-btn button{
     height: 30px;
@@ -653,6 +698,7 @@ export default {
     border:1px solid rgba(255,66,17,1);
 }
 /* 任务列表结束 */
+
 .main-right-top {
   padding: 0px 30px;
 }
@@ -749,10 +795,10 @@ export default {
 }
 .main-tr {
   width: 100%;
-  height: 50px;
   text-align: center;
   border-bottom: 1px solid rgba(213, 216, 219, 1);
   line-height: 50px;
+  height: 100px;
 }
 
 button {
@@ -779,8 +825,15 @@ button {
   border: 1px solid rgba(153, 135, 241, 1);
   border-radius: 4px;
 }
+ .rewulb-bottom-td{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top:38px;
+    margin-left: 15px;
+}
 .main-tr th {
-  width: 33px;
+  width: 92px;
   height: 17px;
   font-size: 16px;
   color: rgba(58, 75, 100, 1);

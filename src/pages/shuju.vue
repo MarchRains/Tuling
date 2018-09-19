@@ -76,12 +76,15 @@
             <div class="sousuo"></div>
             <div class="download"></div>
         </div>
-        <div class="status">
-            <div class="aaaa">
-                <p class="bbb" ></p>
+        <div class="status" >
+            <div id="eachrs" :style="{width: '100%', height: '100%'}">
             </div>
         </div>
-        <div class="analyze"></div>
+        <div class="analyze">
+            <div id="eachrs1" :style="{width: '100%', height: '100%'}">
+            <p class="bbb" ></p>
+        </div>
+        </div>
      </div>
 </template>
 <script>
@@ -115,6 +118,66 @@ export default {
       ],
       value: ""
     };
+  },
+  methods:{
+      ehcars(){
+          let echarts = this.$echarts.init(document.getElementById('eachrs'))
+          echarts.setOption({
+            title: { text: '节点状态',
+            subtext:"" },
+            tooltip: {},
+            xAxis: {
+                
+            },
+            yAxis: {
+                 data: ["节点1","节点2","节点3","节点4","节点5","节点6","节点7","节点8","节点9","节点10"],
+                 
+                 barMaxWidth:20
+                 
+            },
+            series: [{
+                name: '挂断量',
+                type: 'bar',
+                data: [5, 20, 36, 10, 10, 20],
+                barMaxWidth:20,
+                itemStyle:{
+                    color:(0, 0, 1, 0,[{offset: 0, color: '#8AC5FD'},{offset: 1, color: '#61B3FF'}]),
+                    normal: {
+                            barBorderRadius:[0,20,20,0]
+                    }
+                }
+            }]
+        });
+          console.log(status);
+      },
+      ehcars2(){
+          let echarts = this.$echarts.init(document.getElementById('eachrs1'))
+          echarts.setOption({
+            title: { text: '呼叫分析',
+            subtext:"" },
+            tooltip: {},
+            xAxis: { 
+                data: ["节点1","节点2","节点3","节点4","节点5","节点6","节点7","节点8","节点9","节点10"],
+                 barMaxWidth:20},
+            yAxis: {},
+            series: [{
+                name: '呼叫量',
+                type: 'bar',
+                data: [5, 20, 36, 10, 10, 20],
+                barMaxWidth:20,
+                itemStyle:{
+                    color:(0, 0, 1, 0,[{offset: 0, color: '#8AC5FD'},{offset: 1, color: '#61B3FF'}]),
+                    normal: {
+                            barBorderRadius:[20,20,0,0]
+                    }
+                }
+            }]
+        });
+      }
+  },
+  mounted:function(){
+      this.ehcars();
+      this.ehcars2();
   }
 };
 </script>
@@ -129,6 +192,7 @@ export default {
 }
 .shuju {
   width: 100%;
+  height: 242px;
   background: rgba(255, 255, 255, 1);
   border-radius: 4px;
   box-shadow: 4px 1px 5px rgba(41, 43, 44, 0.08);

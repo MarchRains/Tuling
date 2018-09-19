@@ -35,13 +35,14 @@
 
                 <div class="option-date">
                     <span class="period-span">选择日期</span>  
-                     <div class="block">
-                        <el-date-picker v-model="value6" type="datetimerange"  start-placeholder="开始日期"  end-placeholder="结束日期" > </el-date-picker>
+                     <div class="block" >
+                        <el-date-picker class="block-xz" v-model="value6" type="datetimerange"  start-placeholder="开始日期"  end-placeholder="结束日期" > </el-date-picker>
                      </div>
                 </div>
                 <div cla ss="selection-time">
                      <span class="period-span">选择时间</span>  
                       <el-time-picker
+                      class="period-time"
                         is-range
                         v-model="value4"
                         range-separator="至"
@@ -207,6 +208,10 @@ export default {
     font-size:14px;
     color:rgba(58,75,100,1);
     
+}
+.block-xz{
+    width: 350px;
+    margin-left: 5px;
 }
 .main-right-bottom{
     width: 100%;
