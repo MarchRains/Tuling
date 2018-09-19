@@ -129,7 +129,6 @@ export default {
 }
 .shuju {
   width: 100%;
-  height: 242px;
   background: rgba(255, 255, 255, 1);
   border-radius: 4px;
   box-shadow: 4px 1px 5px rgba(41, 43, 44, 0.08);

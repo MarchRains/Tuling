@@ -550,7 +550,6 @@ export default {
 /* 任务列表开始 */
 .rewulb {
     width:100%;
-    height:304px;
     background:rgba(255,255,255,1);
     border-radius:4px 4px 0px 0px;
     box-shadow:4px 1px 5px rgba(41,43,44,0.08);
@@ -613,7 +612,6 @@ export default {
 
 .rewulb-bottom{
     width:100%;
-    height:710px;
     background:rgba(255,255,255,1);
     border-radius:4px 4px 0px 0px;
     box-shadow:4px 1px 5px rgba(41,43,44,0.08);
@@ -627,7 +625,6 @@ export default {
      box-sizing: border-box;
 }
 .rewulb-bottom-table tr{
-   height:100px;
    box-sizing: border-box;
    border-bottom:1px solid rgba(245,245,245,1);
 }

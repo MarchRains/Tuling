@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-
 import home from '@/pages/home'
 import renwu from '@/pages/renwu'
 import yewlist from "@/pages/yewlist"
@@ -27,15 +26,19 @@ export default new Router({
       path: '/home',
       name: '首页',
       component: home,
-      children:[{
+      children:
+      [
+      {
         path: '/renwu',
         name: '机器人',
         component: renwu
-      },{
+      },
+      {
         path: '/ywlist',
         name: '业务列表',
         component: yewlist
-        }, {
+        },
+        {
           path: '/rwlist',
           name: '业务列表',
           component: rwlist
@@ -44,7 +47,7 @@ export default new Router({
           path: '/shuju',
           name: '业务列表',
           component: shuju
-        }, 
+        },
         {
           path: '/tonghua',
           name: '业务列表',
@@ -59,7 +62,8 @@ export default new Router({
           path: '/geren',
           name: '个人中心',
           component: geren
-        },  ]
+        },
+      ]
     },
     {
       path: '/login',

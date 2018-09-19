@@ -21,41 +21,49 @@
     <div class="main">
       <div class="main-left">
         <ul>
-          <li class="list list1">
-            <router-link class="list-a active" href="javascript:(0)" :to="list[0].path">
+          <li class="list list1" @click="active=1">
+            <router-link class="list-a" :class="{active:active==1}" href="javascript:(0)" :to="list[0].path">
               <i class="logout iconfont icon-robot"></i>
               机器人工作台
             </router-link>
           </li>
-          <li class="list list2">
-            <a class="list-a" href="javascript:(0)">
+          <li class="list list2" >
+            <a class="list-a" @click="active=2" :class="{active:active==2}" href="javascript:(0)">
               <i class="logout iconfont icon-appstore"></i>
               任务调度中心
             </a>
-            <div class="subdiv">
-              <router-link class="list-a " href="" :to="list[1].path">发起智能外呼业务</router-link>
-              <router-link href="" :to="list[2].path">任务列表</router-link>
+            <div class="subdiv" >
+              <div @click="active=3">
+              <router-link class="list-a" :class="{active:active==3}" :to="list[1].path"  >发起智能外呼业务</router-link>
+              </div>
+              <div @click="active=4">
+              <router-link :to="list[2].path" class="list-a" :class="{active:active==4}">任务列表</router-link>
+              </div>
               <!-- <a href="">任务列表</a> -->
             </div>
           </li>
-          <li class="list list2">
-            <a class="list-a" href="javascript:(0)">
+          <li class="list list2" >
+            <a class="list-a" @click="active=5" :class="{active:active==5}" href="javascript:(0)" :to="list[3].path">
               <i class="logout iconfont icon-tongjifenxi"></i>
               统计分析
             </a>
             <div class="subdiv">
-               <router-link class="list-a " href="" :to="list[3].path">数据概况</router-link>
-                <router-link href="" :to="list[4].path">通话情况分析</router-link>
+              <div @click="active=6">
+               <router-link class="list-a" :class="{active:active==6}" :to="list[3].path">数据概况</router-link>
+              </div>
+              <div @click="active=7">
+                <router-link :class="{active:active==7}" :to="list[4].path">通话情况分析</router-link>
+              </div>
             </div>
           </li>
-          <li class="list list1">
-             <router-link class="list-a " href="" :to="list[5].path">
+          <li class="list list1" @click="active=8">
+             <router-link class="list-a"  :class="{active:active==8}" :to="list[5].path">
               <i class="logout iconfont icon-sousuo-tianchong"></i>
               用户搜索
             </router-link>
           </li>
           <li class="list list2">
-            <a class="list-a" href="javascript:(0)">
+            <a class="list-a" @click="active=9"  :class="{active:active==9}" href="javascript:(0)">
               <i class="logout iconfont icon-informatiom"></i>
               信息业务
             </a>
@@ -64,8 +72,8 @@
               <a href="">语音服务</a>
             </div>
           </li>
-          <li class="list list1">
-            <router-link class="list-a " href="" :to="list[6].path">
+          <li class="list list1" @click="active=12">
+            <router-link class="list-a " href="" :class="{active:active==12}" :to="list[6].path">
               <i class="logout iconfont icon-yonghudianji"></i>
               个人中心
            </router-link>
@@ -203,6 +211,7 @@ export default {
       //退出弹出框
       show:0,
       list: [],
+      active:1,
       //下拉框
       options: [
         {

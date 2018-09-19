@@ -5,12 +5,15 @@
              <div class="login-list">
                  <img class="login-list-logo" src="../assets/img/logo.png" alt="">
                  <p class="tlzn">图灵智能语音登录系统</p>
+                 
                  <form action="" method="post">
-                            <input @blur.prevent="login(1,user)" class="user-img" v-model="user"  type="text" name="user" placeholder="请输入管理员姓名"  maxlength="12">
-                            <span  class="zhcz">{{markedWords}}</span>
-                            <input class="password-img"  v-model="password" type="password" name="password" placeholder="请输入登录密码"  maxlength="12">          
-                            <span  class="zhcz">{{markedWords}}</span>
-                            <el-button @click="login" class="login-dl" type="primary">登录</el-button>
+                        <span class="user-img"><img src="../assets/img/user-img.png" alt=""></span>
+                        <input @blur.prevent="login(1,user)"  v-model="user"  type="text" name="user" placeholder="请输入管理员姓名"  maxlength="12">
+                        <span  class="zhcz">{{markedWords}}</span>
+                        <span class="password-img"><img src="../assets/img/pass-img1.png" alt=""></span>
+                        <input v-model="password" type="password" name="password" placeholder="请输入登录密码"  maxlength="12">          
+                        <span  class="zhps">{{markedWords}}</span>
+                        <el-button @click="login" class="login-dl" type="primary">登录</el-button>
                  </form>
              </div>
         </div>
@@ -108,13 +111,16 @@ export default {
         box-sizing: border-box;
         padding-left: 67px;
    }
-    .login-list .user-img{
-        background:url("../assets/img/user-img.png") 20px 13px  / 21px  21px  no-repeat;
-        line-height: 47px;
+    .user-img{
+        position: absolute;
+        left: 88px;
+        top: 278px;
+
     }
     .login-list .password-img{
-         background:url("../assets/img/pass-img1.png") 20px 13px  / 21px  21px  no-repeat;
-         line-height: 47px;
+         position: absolute;
+          left: 88px;
+        top: 365px;
     }
     .login-dl{
         width:430px;

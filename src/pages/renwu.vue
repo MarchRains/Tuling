@@ -17,7 +17,6 @@
                 <div class="right-bottom">
                     <table class="main-table">
                         <tr class="main-trs">
-
                             <th>
                                 序号
                             </th>
@@ -42,7 +41,7 @@
                             <td>xxx话术流程</td>
                             <td>启用</td>
                             <td>
-                                <button class="hjxx">播放记录</button>
+                                <button class="hjxx" @click="open5">播放记录</button>
                                 <button class="dcly">导出录音</button>
                             </td>
                         </tr>
@@ -149,6 +148,13 @@ export default {
       ],
       value: ""
     };
+  },
+  methods:{
+      open5() {
+        this.$alert('<strong>这是 <i>HTML</i> 片段</strong>', '写入想要的HTML代码即可', {
+          dangerouslyUseHTMLString: true
+        });
+      }
   }
 };
 </script>
@@ -161,7 +167,6 @@ export default {
 }
 .main-right-box {
   width: 100%;
-  height: 705px;
   margin-top: 28px;
   background: rgba(255, 255, 255, 1);
   border-radius: 4px 4px 0px 0px;
@@ -226,7 +231,7 @@ export default {
   /* width: 100px; */
   height: 50px;
   box-sizing: border-box;
-  padding: 0px 35px;
+  /* padding: 0px 35px; */
   box-sizing: border-box;
 }
 .hjxx {

@@ -47,7 +47,10 @@
                           <i class="logout iconfont icon-sousuo"></i>
                           搜索任务
                      </span> -->
-                     <el-button class="soso" type="primary"> <i class="logout iconfont icon-sousuo"></i> 搜索任务</el-button>
+                     <el-button class="soso" type="primary" @click="search"> 
+                         <i class="logout iconfont icon-sousuo"></i> 
+                         搜索任务
+                    </el-button>
                 </div>
             </div>
      
@@ -180,6 +183,33 @@ export default {
         }],
         value: ''
       };
+    },
+    methods:{
+        search(){
+            console.log(111111111111)
+
+        
+
+        // 使用封装的ajax调接口即可        
+        this.$http({
+          url:"https://api.api68.com/klsf/getLotteryInfo.do",
+          type:"post",
+          data:{
+              issue:"",
+              lotCode:"10009"
+          }
+      })
+      .then(function(res){
+          console.log(res);
+          var result = res.result.data;
+          console.log(result)
+        //   console.log(this.msg);
+      }.bind(this))
+      .catch(function(err){
+        //   console.log(err)
+      }.bind(this))
+        }
+
     }
 }
 
@@ -211,7 +241,7 @@ export default {
 }
 .right-bottom{
     width:100%;
-    height:817px;
+    height:auto;
 background:rgba(255,255,255,1);
 border-radius:4px 4px 0px 0px;
 box-shadow:4px 1px 5px rgba(41,43,44,0.08);
